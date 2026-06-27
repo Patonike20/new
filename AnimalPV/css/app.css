@@ -1,0 +1,56 @@
+.hero-adopcion{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:90vh;
+    padding:50px 8%;
+    background:#ffffff;
+    margin-left: -70px;
+    position: relative;
+    padding-bottom: 220px; /* espacio para que el footer pueda superponerse sin tapar contenido */
+}
+
+.hero-texto{
+    max-width:500px;
+}
+
+.hero-texto h1{
+    font-size:4rem;
+    font-weight:bold;
+}
+
+.hero-texto span{
+    color: #e09510;
+}
+
+.hero-texto p{
+    margin:20px 0;
+    color:#666;
+}
+
+.btn-adoptar{
+    background: #1e2130;
+    color: #e09510;
+    padding:15px 30px;
+    border-radius:50px;
+    text-decoration:none;
+}
+
+.collage{
+    display:grid;
+    grid-template-columns:repeat(3,180px);
+    gap:15px;
+}
+
+.collage img{
+    width:100%;
+    object-fit:cover;
+    border-radius:100px;
+    transition:0.5s;
+}
+
+.collage img:nth-child(1){height:220px;}
+.collage img:nth-child(2){height:300px;}
+.collage img:nth-child(3){height:380px;}
+.collage img:nth-child(4){height:280px;}
+.collage img:nth-child(5){height:220px;}
