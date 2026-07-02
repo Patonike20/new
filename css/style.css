@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #f4f8ff,
+        #e6faff);
+  border-right: 1px solid #f0f0f0;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: visible;
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── LOGO ── */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 8px 14px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.sidebar-logo .logo-icon {
+  width: 44px;
+  height: 44px;
+  background: #1a1a2e;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-logo .logo-icon i {
+  color: #fff;
+  font-size: 18px;
+}
+
+.sidebar-logo .logo-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* ── SECTION TITLES ── */
+.sidebar-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #b0b8c1;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 10px 10px 4px 10px;
+}
+
+/* ── NAV ITEMS ── */
+.sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar nav ul li a:hover {
+  background: #f5f5f5;
+  color: #1a1a2e;
+}
+
+.sidebar nav ul li.active > a {
+  background: #f0f0f0;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.sidebar nav ul li a i {
+  width: 18px;
+  font-size: 15px;
+  text-align: center;
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.sidebar nav ul li.active > a i,
+.sidebar nav ul li a:hover i {
+  color: #1a1a2e;
+}
+
+/* ── BADGE ── */
+.nav-badge {
+  margin-left: auto;
+  background: #e09510;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 2px 7px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ── SIDEBAR FOOTER ── */
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.sidebar-footer a:hover {
+  background: #f5f5f5;
+  color: #1a1a2e;
+}
+
+.sidebar-footer a i {
+  width: 18px;
+  font-size: 15px;
+  text-align: center;
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+/* ── USER PROFILE ── */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.user-profile:hover {
+  background: #f5f5f5;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0e4ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
+.user-info .user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.user-info .user-role {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+}
+
+/* ── SUBMENU (desplegable inline) ── */
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu > .submenu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.has-submenu > .submenu-toggle:hover {
+  background: #f5f5f5;
+  color: #1a1a2e;
+}
+
+.has-submenu > .submenu-toggle i.main-icon {
+  width: 18px;
+  font-size: 15px;
+  text-align: center;
+  flex-shrink: 0;
+  color: #6b7280;
+}
+
+.has-submenu > .submenu-toggle .label {
+  flex: 1;
+}
+
+.has-submenu > .submenu-toggle i.arrow {
+  font-size: 11px;
+  color: #b0b8c1;
+  transition: transform 0.2s;
+}
+
+/* submenú inline desplegado con hover */
+.submenu {
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+  padding-left: 42px;
+}
+
+.has-submenu:hover > .submenu {
+  max-height: 300px;
+}
+
+.has-submenu:hover > .submenu-toggle i.arrow {
+  transform: rotate(180deg);
+}
+
+.submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+
+.submenu li a:hover {
+  background: #f5f5f5;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.submenu li a i {
+  width: 14px;
+  font-size: 12px;
+  text-align: center;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+/* ── CONFIG CARD ── */
+.config-card {
+  background: #1e2130;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.config-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.config-card-header i {
+  font-size: 16px;
+  color: #e09510;
+}
+
+.config-card-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.config-card-btn {
+  display: block;
+  text-align: center;
+  background: #2a2f45;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.config-card-btn:hover {
+  background: #e09510;
+}
+
+/* ── ACCOUNT CARD ── */
+.account-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 12px;
+  background: #f8f9fb;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.account-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e8eaf0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 18px;
+}
+
+.account-text {
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-login:hover {
+  background: #e09510;
+}
+
+.btn-register {
+  font-size: 12px;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.btn-register strong {
+  color: #e09510;
+}
+
+.btn-register:hover {
+  color: #1a1a2e;
+}
+footer.footer {
+    margin: 50px auto 0;
+    max-width: 1200px;
+    width: min(100%, 1200px);
+    background: transparent;
+}
